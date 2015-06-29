@@ -1,7 +1,7 @@
 # Games
 
 Author: Ariana Hackenburg
-The repository is the authors attempt to become acquainted with pygame.
+This repository is the authors attempt to become acquainted with pygame.
 
 Reference manual used:
 http://inventwithpython.com/pygame
@@ -13,5 +13,4 @@ Games/Projects in repo:
 1) Memory Game 
 2) Turkey Dash
 3) Minesweeper
-
 
