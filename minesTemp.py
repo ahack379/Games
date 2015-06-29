@@ -12,7 +12,8 @@
 #    a) Winning: All the turkey's being swept away
 #    b) Losing: Turkey running away from broom
 # 3) Store high scores for future reference
-# 4) Clean up code.  Consider using classes to organize functionality/reset variables between games.
+# 4) Clean up code.  
+# 5) Implement classes to organize functionality/reset variables between games.
 
 # Things to do for this and other projects:
 # 0) Create class which contains commonly used gaming needs
@@ -32,6 +33,9 @@ def main():
     os.system('clear')
 
     m = MineGame()
+    m.setBoardVariables(5,5)
+    print "VARIABLES: ", m.BOX, m.SIZE, m.NSQUARE_X, m.NSQUARE_Y
+    m.setMines(3)
     birdImg = pygame.image.load('pics/turk.png')
     birdImg = pygame.transform.scale(birdImg, (m.BOX*7/10, m.BOX*7/10))
     
@@ -91,9 +95,9 @@ def main():
 		m.clicked.append( (boxX,boxY) )
 		m.fillUsersBoxes(boxX,boxY)
 		pygame.display.update()
-#		print "CORRECT NUMBER OF BOXES: ", len(correct) 
+		print "CORRECT NUMBER OF BOXES: ", len(m.correctlyFilledIndices) 
 
-	    if len(m.correct) == (m.NSQUARE_X * m.NSQUARE_Y - m.MINES)  :
+	    if len(m.correctlyFilledIndices) == (m.NSQUARE_X * m.NSQUARE_Y - m.MINES)  :
 		for (x,y) in m.mineLocations:
 		    if (x,y) not in m.clicked:
 			pygame.draw.rect(m.DISPLAYSURF, c.GREEN, (m.START_X + x*m.BOX - m.SIZE/4, m.START_Y + y*m.BOX -m.SIZE/4, m.SIZE/2, m.SIZE/2))
@@ -105,16 +109,7 @@ def main():
   	    	pygame.time.wait(2000)
 		pygame.init()
 
-		m = MineClass()
-		#DISPLAYSURF = pygame.display.set_mode((BOARDWIDTH,BOARDHEIGHT),0,32)
-		#pygame.display.set_caption('DON"T SWEEP THE BIRDS')
-		#initBoard() 
-	        #mineLocations = placeMines()
-    		#boardValues = getBoardValues(mineLocations)
-    		#foundMine   = 0 
-    		#correct = [] 
-    		#clicked = []
-		#rightClicked = []
+		m = MineGame()
 		#os.system('clear')
 
 	    if m.foundMine == 1:

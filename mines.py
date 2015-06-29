@@ -35,9 +35,9 @@ BLUE  =  (  0,   0, 255)
 GRAY  =  (100, 100, 100)
 
 
-NSQUARE_X    = 10 
-NSQUARE_Y    = 10
-MINES        = 6 
+NSQUARE_X    = 4 
+NSQUARE_Y    = 5
+MINES        = 3 
 BOX 	     = 50	
 SIZE 	     = 70
 BOARDWIDTH   = NSQUARE_X * 80 
@@ -125,7 +125,7 @@ def main():
 		clicked.append( (boxX,boxY) )
 		fillUsersBoxes(boxX,boxY,boardValues,mineLocations,correct)
 		pygame.display.update()
-#		print "CORRECT NUMBER OF BOXES: ", len(correct) 
+		print "CORRECT NUMBER OF BOXES: ", len(correct) 
 
 	    #Can make this more robust.  Add list of indices which have been right clicked--when 
 	    #they are correct, AND the number of clicked.  

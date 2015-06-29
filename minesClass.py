@@ -1,4 +1,4 @@
-from baseClass import BoardBase 
+from boardBase import BoardBase 
 import pygame
 import random, sys
 import color as c
@@ -10,7 +10,7 @@ class MineGame(BoardBase):
     def __init__(self):
 	
 	BoardBase.__init__(self) 
-	self.MINES        = 1 
+	self.MINES        = 3 
     	pygame.display.set_caption('DON"T SWEEP THE BIRDS')
     	self.mineLocations = self.placeMines()
     	self.boardValues = self.getBoardValues()
@@ -20,8 +20,9 @@ class MineGame(BoardBase):
     	self.rightClicked = []
 	self.correctlyFilledIndices = []
 
+
     # copy constructor
-    def setVariables(self,mines):
+    def setMines(self,mines):
 	self.MINES = mines
 
 
@@ -56,7 +57,6 @@ class MineGame(BoardBase):
     
         temp2 = [[0 for x in range(self.NSQUARE_Y) ] for x in range(self.NSQUARE_X)]
     
-	print self.NSQUARE_X, " SAKJHDS"
         for i in xrange(0,self.NSQUARE_X):
             for j in xrange(0,self.NSQUARE_Y):
                 if (i,j) in self.mineLocations:
@@ -102,13 +102,17 @@ class MineGame(BoardBase):
 #           print "INDICES: ", indices
             indices.remove((x,y))
 
+	    print "What does this think x and y are: ", self.NSQUARE_X, self.NSQUARE_Y
 
             if self.boardValues[x][y] == 0 : 
 		for ii in xrange(x-1,x+2):
             	    for jj in xrange(y-1,y+2):
 
+
             	        if ii >= self.NSQUARE_X or jj >= self.NSQUARE_Y or ii < 0 or jj < 0:
             	            continue
+
+			print "INDICES: " , (ii,jj)
 
             	        if (ii,jj) == (x,y):
 			    continue
