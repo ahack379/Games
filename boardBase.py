@@ -19,10 +19,7 @@ class BoardBase:
         self.BOARDHEIGHT  = self.NSQUARE_Y * 60
         self.START_X  = (self.BOARDWIDTH  - self.NSQUARE_X * self.BOX) / 2 
         self.START_Y  = (self.BOARDHEIGHT - self.NSQUARE_Y * self.BOX) / 2 
-
-	pygame.init()
         self.DISPLAYSURF = pygame.display.set_mode((self.BOARDWIDTH, self.BOARDHEIGHT),0,32)
-	self.initBoard()
 
     #Set box width, and spacing + box width
     def setBoardVariables(self,nsquare_X,nsquare_Y):
@@ -32,7 +29,7 @@ class BoardBase:
         self.BOARDHEIGHT  = self.NSQUARE_Y * 60
         self.START_X  = (self.BOARDWIDTH  - self.NSQUARE_X * self.BOX) / 2 
         self.START_Y  = (self.BOARDHEIGHT - self.NSQUARE_Y * self.BOX) / 2 
-	return
+
 
 
     #Convert mouse coordinates to iterative box-values 
@@ -44,9 +41,10 @@ class BoardBase:
         return (tempX, tempY)
     
     
+
     #Draws initial white squares
     def initBoard(self):
-    
+
         for i in xrange(self.NSQUARE_X):
             for j in xrange(self.NSQUARE_Y):
                 pygame.draw.rect(self.DISPLAYSURF, self.COLOR, (self.START_X + i*self.BOX - self.SIZE/4, self.START_Y + j*self.BOX -self.SIZE/4, self.SIZE/2, self.SIZE/2))

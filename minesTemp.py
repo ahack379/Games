@@ -13,7 +13,7 @@
 #    b) Losing: Turkey running away from broom
 # 3) Store high scores for future reference
 # 4) Clean up code.  
-# 5) Implement classes to organize functionality/reset variables between games.
+# MOSTLY DONE,STILL SOME BUGS : 5) Implement classes to organize functionality/reset variables between games.
 
 # Things to do for this and other projects:
 # 0) Create class which contains commonly used gaming needs
@@ -31,11 +31,12 @@ import color as c
 def main():
 
     os.system('clear')
+    pygame.init()
 
     m = MineGame()
-    m.setBoardVariables(5,5)
-    print "VARIABLES: ", m.BOX, m.SIZE, m.NSQUARE_X, m.NSQUARE_Y
-    m.setMines(3)
+    m.initBoard()
+
+    print "mines : ", m.MINES 
     birdImg = pygame.image.load('pics/turk.png')
     birdImg = pygame.transform.scale(birdImg, (m.BOX*7/10, m.BOX*7/10))
     
@@ -110,6 +111,7 @@ def main():
 		pygame.init()
 
 		m = MineGame()
+		m.initBoard()
 		#os.system('clear')
 
 	    if m.foundMine == 1:

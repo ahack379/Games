@@ -24,6 +24,7 @@ class MineGame(BoardBase):
     # copy constructor
     def setMines(self,mines):
 	self.MINES = mines
+    	self.mineLocations = self.placeMines()
 
 
     #Randomly assign mine placement
@@ -102,7 +103,7 @@ class MineGame(BoardBase):
 #           print "INDICES: ", indices
             indices.remove((x,y))
 
-	    print "What does this think x and y are: ", self.NSQUARE_X, self.NSQUARE_Y
+#	    print "What does this think x and y are: ", self.NSQUARE_X, self.NSQUARE_Y
 
             if self.boardValues[x][y] == 0 : 
 		for ii in xrange(x-1,x+2):
@@ -112,7 +113,7 @@ class MineGame(BoardBase):
             	        if ii >= self.NSQUARE_X or jj >= self.NSQUARE_Y or ii < 0 or jj < 0:
             	            continue
 
-			print "INDICES: " , (ii,jj)
+#			print "INDICES: " , (ii,jj)
 
             	        if (ii,jj) == (x,y):
 			    continue
