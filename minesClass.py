@@ -10,7 +10,7 @@ class MineGame(BoardBase):
     def __init__(self):
 	
 	BoardBase.__init__(self) 
-	self.MINES        = 3 
+	self.MINES        = 10 
     	pygame.display.set_caption('DON"T SWEEP THE BIRDS')
     	self.mineLocations = self.placeMines()
     	self.boardValues = self.getBoardValues()
@@ -50,6 +50,8 @@ class MineGame(BoardBase):
     
         #print pairs
         #print "Mines 0-35: ", taken 
+
+	print "Number of mines we're placing them....", self.MINES 
         return pairs
 
 

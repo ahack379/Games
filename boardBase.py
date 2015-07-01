@@ -10,8 +10,8 @@ class BoardBase:
     
     def __init__(self):
 
-        self.NSQUARE_X    = 4 
-        self.NSQUARE_Y    = 5
+        self.NSQUARE_X    = 10 
+        self.NSQUARE_Y    = 10
         self.BOX          = 50
         self.SIZE         = 70
 	self.COLOR	  = c.WHITE
