@@ -51,7 +51,6 @@ class MineGame(BoardBase):
         #print pairs
         #print "Mines 0-35: ", taken 
 
-	print "Number of mines we're placing them....", self.MINES 
         return pairs
 
 
@@ -138,7 +137,87 @@ class MineGame(BoardBase):
 
 
 
-	
+    def introScreen2(self):
+        font = pygame.font.SysFont('Arial',26)
+        DISPLAY = pygame.display.set_mode((self.BOARDWIDTH, self.BOARDHEIGHT),0,32)   
+    
+        text = font.render(' The turkies are loose! Your help needed to sweep them all up. ', True, c.BLACK, c.YELLOW)
+        textRect = text.get_rect()
+        textRect.centerx = DISPLAY.get_rect().centerx
+        textRect.centery = DISPLAY.get_rect().centery - self.BOARDHEIGHT/2 * 0.5 
+        DISPLAY.blit(text,textRect)
+        pygame.display.update()
+    
+        scale = self.MINES * 0.3 
+        turkey2 = pygame.image.load('pics/turk.png')
+        turkey2 = pygame.transform.scale(turkey2, (2*self.BOX, 2*self.BOX))
+    
+        for i in xrange(self.MINES*3):
+    
+            rx = random.randint(10, self.BOARDWIDTH - self.BOARDWIDTH * 0.15)
+            ry = random.randint(0 + self.BOARDHEIGHT/3 , self.BOARDHEIGHT - self.BOARDHEIGHT*0.2)
+            DISPLAY.blit(turkey2,(rx,ry,self.SIZE*scale, self.SIZE*scale))
+            pygame.display.update()
+            pygame.time.wait(60)
+    
+        pygame.time.wait(1000)
+        
+    
+        textRect.centerx = DISPLAY.get_rect().centerx - 25  
+        text2 = font.render(' Be careful though! Get too near a turkey and brotha may eat you... ', True, c.BLACK, c.GREEN)
+        DISPLAY.blit(text2,textRect)
+        pygame.display.update()
+        pygame.time.wait(3000)
+    
+    
+        openImg = pygame.image.load('pics/open.png')
+        openImg = pygame.transform.scale(openImg, (10*self.BOX, 10*self.BOX))
+        textRect.centerx = DISPLAY.get_rect().centerx - 40
+        text3 = font.render(' Left click on the squares for clues about where turkeys are lurking... ', True, c.BLACK, c.YELLOW)
+        DISPLAY.blit(text3,textRect)
+        pygame.display.update()
+        pygame.time.wait(3000)
+    
+        DISPLAY.fill(c.BLACK)
+        DISPLAY.blit(openImg,(self.BOARDWIDTH/6,self.BOARDHEIGHT/8,self.SIZE*scale, self.SIZE*scale))
+        textRect.centerx = DISPLAY.get_rect().centerx - 10
+        textRect.centery = DISPLAY.get_rect().centery - self.BOARDHEIGHT/2 * 0.8
+        text4 = font.render(' Red numbers indicate how many turkeys threaten your location. ', True, c.BLACK, c.YELLOW)
+        DISPLAY.blit(text4,textRect)
+        pygame.display.update()
+        pygame.time.wait(3000)
+    
+    
+        protect = pygame.image.load('pics/protect.png')
+        protect = pygame.transform.scale(protect, (10*self.BOX, 10*self.BOX))
+        DISPLAY.fill(c.BLACK)
+        DISPLAY.blit(protect,(self.BOARDWIDTH/6,self.BOARDHEIGHT/8,self.SIZE*scale, self.SIZE*scale))
+        text5 = font.render('Right click on a suspicious location for protection. ', True, c.BLACK, c.GREEN)
+        textRect.centerx = DISPLAY.get_rect().centerx + 50
+        DISPLAY.blit(text5,textRect)
+        pygame.display.update()
+        pygame.time.wait(3000)
+    
+        text6 = font.render(' A sweeper will appear to protect your feathers for the rest of the game. ', True, c.BLACK, c.YELLOW)
+        textRect.centerx = DISPLAY.get_rect().centerx - 55
+        DISPLAY.blit(text6,textRect)
+        pygame.display.update()
+        pygame.time.wait(3000)
+    
+    
+        DISPLAY.fill(c.BLACK)
+        text7 = font.render(' Find all safe locations to win. Good luck! ', True, c.GREEN, c.BLACK)
+        textRect.centerx = DISPLAY.get_rect().centerx + 100
+        textRect.centery = DISPLAY.get_rect().centery
+        DISPLAY.blit(text7,textRect)
+        pygame.display.update()
+        pygame.time.wait(3000)
+    
+        DISPLAY.fill(c.BLACK)
+
+
+
+
 
 
 
