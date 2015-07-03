@@ -22,6 +22,8 @@
 
 import pygame, sys, os
 import random
+import time
+import shutil, tempfile
 #from myMemAttempt import convertToBox
 
 from pygame.locals import *
@@ -33,6 +35,10 @@ def main():
     os.system('clear')
     pygame.init()
 
+
+
+    start = time.time()
+
     m = MineGame()
     birdImg = pygame.image.load('pics/turk.png')
     birdImg = pygame.transform.scale(birdImg, (m.BOX*7/10, m.BOX*7/10))
@@ -40,7 +46,7 @@ def main():
     sweepImg = pygame.image.load('pics/SWEEPER.png')
     sweepImg = pygame.transform.scale(sweepImg, (m.BOX*7/10, m.BOX*7/10))
 
-    m.introScreen()
+  #  m.introScreen()
 
     m.initBoard()
 
@@ -107,12 +113,14 @@ def main():
 		pygame.display.update()
 		    
 		print "\n\n\nYOU WIIIIIIN!" 
+		#scoreKeep(start) #,scores)
 		    
   	    	pygame.time.wait(2000)
 		pygame.init()
 
 		m = MineGame()
 		m.initBoard()
+		start = time.time()
 		#os.system('clear')
 
 	    if m.foundMine == 1:
@@ -120,7 +128,57 @@ def main():
   	    	pygame.time.wait(2000)
 		pygame.quit()
   	    	sys.exit()
-	    
+
+def scoreKeep(start): #,target):
+    
+    target = open("scores.txt",'rw')
+
+    nScores = 5
+    time.clock()    
+    elapsed = 0
+    elapsed = time.time() - start
+    print "The game took you: ",  elapsed, " seconds." 
+    name = raw_input("Enter your name: ")
+#    print "Writing your score to file..." 
+    
+    score    = []
+
+#    for line in target:
+#	score.append((target[0],target[1]))
+#	print "Score starts as: ", score
+    
+    score.append((name,elapsed))    
+#    score.sort(key = lambda x: x[1] )
+#    print "Score array now is : ", score 
+
+
+    length = len(score)  
+
+    tempFile = open("temp.txt",'w+b')
+
+    for line in tempFile:
+	print "Line is: ", line
+
+    tempFile.seek(0)
+ #   tempFile.write(" PLAYER   SCORE\n" )
+    if length > nScores:
+	for x in xrange(nScores):
+	    tempFile.write(str(score[x])) 
+
+    else: 
+	for x in xrange(length):
+	    tempFile.write(str(score[x]))
+	    print "Writing score to file..." 
+
+
+#    for line in tempFile:
+#	print "this is my line " , line
+    #target = tempFile 
+
+#    os.system("cp temp.txt temp2.txt")   
+ #   os.system("rm temp.txt" )
+
+    time.sleep(1)  	    
 
 if __name__ == '__main__':
     main()

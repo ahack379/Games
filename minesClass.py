@@ -137,7 +137,7 @@ class MineGame(BoardBase):
 
 
 
-    def introScreen2(self):
+    def introScreen(self):
         font = pygame.font.SysFont('Arial',26)
         DISPLAY = pygame.display.set_mode((self.BOARDWIDTH, self.BOARDHEIGHT),0,32)   
     
