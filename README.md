@@ -13,4 +13,6 @@ Games/Projects in repo:
 1) Memory Game 
 2) Turkey Dash
 3) Minesweeper
+    a) mines.py: Self-contained. python mines.py
+    b) minesTemp.py: Author's attempt to redistribute information into class structure. Basic board info in BoardBase class; minesweeper functionality in MineGame class. python minesTemp.py
 
