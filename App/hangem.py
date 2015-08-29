@@ -11,7 +11,7 @@
 # 2) Better exception handling
 # 3) Other things I can't think of riight now 
 
-from Board import * #HangmanBoard, WordBank
+from Base.Board import * #HangmanBoard, WordBank
 import os, re
 
 word = WordBank()

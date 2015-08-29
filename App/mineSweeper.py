@@ -27,7 +27,7 @@ import shutil, tempfile
 #from myMemAttempt import convertToBox
 
 from pygame.locals import *
-from minesClass import MineGame
+from Base.minesClass import MineGame
 import Base.color as c
 
 def main():

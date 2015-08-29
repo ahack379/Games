@@ -1,8 +1,8 @@
 #from boardBase import BoardBase 
-from Base.boardBase import BoardBase
+from boardBase import BoardBase
 import pygame
 import random, sys
-import Base.color as c
+import color as c
 
 from pygame.locals import *
 
