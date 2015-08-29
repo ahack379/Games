@@ -28,7 +28,7 @@ import shutil, tempfile
 
 from pygame.locals import *
 from minesClass import MineGame
-import color as c
+import Base.color as c
 
 def main():
 
@@ -40,10 +40,10 @@ def main():
     start = time.time()
 
     m = MineGame()
-    birdImg = pygame.image.load('pics/turk.png')
+    birdImg = pygame.image.load('../pics/turk.png')
     birdImg = pygame.transform.scale(birdImg, (m.BOX*7/10, m.BOX*7/10))
     
-    sweepImg = pygame.image.load('pics/SWEEPER.png')
+    sweepImg = pygame.image.load('../pics/SWEEPER.png')
     sweepImg = pygame.transform.scale(sweepImg, (m.BOX*7/10, m.BOX*7/10))
 
   #  m.introScreen()

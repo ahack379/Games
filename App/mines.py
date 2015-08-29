@@ -46,10 +46,10 @@ BOARDHEIGHT  = NSQUARE_Y * 60
 START_X  = (BOARDWIDTH - NSQUARE_X*BOX) / 2
 START_Y  = (BOARDHEIGHT - NSQUARE_Y*BOX) / 2
 
-birdImg = pygame.image.load('pics/turk.png')
+birdImg = pygame.image.load('../pics/turk.png')
 birdImg = pygame.transform.scale(birdImg, (BOX*7/10, BOX*7/10))
 
-sweepImg = pygame.image.load('pics/SWEEPER.png')
+sweepImg = pygame.image.load('../pics/SWEEPER.png')
 sweepImg = pygame.transform.scale(sweepImg, (BOX*7/10, BOX*7/10))
 
 

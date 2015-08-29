@@ -1,7 +1,8 @@
-from boardBase import BoardBase 
+#from boardBase import BoardBase 
+from Base.boardBase import BoardBase
 import pygame
 import random, sys
-import color as c
+import Base.color as c
 
 from pygame.locals import *
 
@@ -149,7 +150,7 @@ class MineGame(BoardBase):
         pygame.display.update()
     
         scale = self.MINES * 0.3 
-        turkey2 = pygame.image.load('pics/turk.png')
+        turkey2 = pygame.image.load('../pics/turk.png')
         turkey2 = pygame.transform.scale(turkey2, (2*self.BOX, 2*self.BOX))
     
         for i in xrange(self.MINES*3):
@@ -170,7 +171,7 @@ class MineGame(BoardBase):
         pygame.time.wait(3000)
     
     
-        openImg = pygame.image.load('pics/open.png')
+        openImg = pygame.image.load('../pics/open.png')
         openImg = pygame.transform.scale(openImg, (10*self.BOX, 10*self.BOX))
         textRect.centerx = DISPLAY.get_rect().centerx - 40
         text3 = font.render(' Left click on the squares for clues about where turkeys are lurking... ', True, c.BLACK, c.YELLOW)
@@ -188,7 +189,7 @@ class MineGame(BoardBase):
         pygame.time.wait(3000)
     
     
-        protect = pygame.image.load('pics/protect.png')
+        protect = pygame.image.load('../pics/protect.png')
         protect = pygame.transform.scale(protect, (10*self.BOX, 10*self.BOX))
         DISPLAY.fill(c.BLACK)
         DISPLAY.blit(protect,(self.BOARDWIDTH/6,self.BOARDHEIGHT/8,self.SIZE*scale, self.SIZE*scale))

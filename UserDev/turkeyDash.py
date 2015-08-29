@@ -20,8 +20,8 @@ DISPLAYSURF = pygame.display.set_mode((500, 400), 0, 32)
 pygame.display.set_caption('Animation')
 
 WHITE = (255, 255, 255)
-catImg = pygame.image.load('pics/derp.png')
-turkImg = pygame.image.load('pics/dash.png')
+catImg = pygame.image.load('../pics/derp.png')
+turkImg = pygame.image.load('../pics/dash.png')
 catx = 500
 caty = 120 
 turkeyx = 300 
