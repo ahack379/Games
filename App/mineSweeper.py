@@ -35,8 +35,6 @@ def main():
     os.system('clear')
     pygame.init()
 
-
-
     start = time.time()
 
     m = MineGame()
